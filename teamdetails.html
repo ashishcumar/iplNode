@@ -1,0 +1,989 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/b57fd66914.js" crossorigin="anonymous"></script>
+    <title>Ipl-Teams</title>
+    <link rel="icon"
+        href="https://play-lh.googleusercontent.com/jT7BW0fN4fdzlBCkBQqfooB6ormtmKztDpXm_F7CyAMIPRZcL28boQmOwWqvCVelnDl5=w240-h480-rw"
+        type="image/x-icon">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Lobster&family=Nunito:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Nunito', sans-serif;
+        }
+
+
+
+        .navbar {
+            display: flex;
+            justify-content: space-around;
+            width: 100%;
+            padding: 5px;
+            align-items: center;
+            color: white;
+            background: linear-gradient(92.04deg, #18184a 24.18%, #19398a 50.95%, #18184a 110.32%);
+        }
+
+        #centernav ul {
+            justify-content: space-between;
+            align-items: center;
+            list-style-type: none;
+            margin: 5px;
+            display: none;
+        }
+
+        #centernav ul li {
+            display: flex;
+            margin: 0px 5px;
+            align-items: center;
+
+        }
+
+        #leftnav {
+            margin: 0px 3px;
+        }
+
+        #leftnav img {
+            width: 80%;
+        }
+
+        #rightnav {
+            text-align: right;
+            margin: 0px 3px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #rightnav img {
+            margin: 0px 5px;
+            width: 30%;
+        }
+
+        .trendingFlex {
+            display: none;
+        }
+
+        .trendingFlex ul li {
+            display: none;
+            list-style-type: none;
+            font-size: clamp(0.7rem, 0.9rem, 1.1rem);
+        }
+
+        #moreOpsbtn {
+            display: flex;
+            margin: 0px 8px;
+            align-items: flex-end;
+        }
+
+        .sliderContainer {
+            background: url("https://www.iplt20.com/assets/images/banner_bg.jpg");
+            display: block;
+            padding: 5px 0;
+        }
+
+
+
+        .slides {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-evenly;
+            margin: auto;
+            width: 80%;
+            position: relative;
+            word-wrap: break-word;
+
+        }
+
+        #slideimg {
+            width: 100%;
+            margin: auto;
+            display: block;
+        }
+
+        .watchvideo {
+            position: absolute;
+            font-weight: bold;
+            top: 10px;
+            right: 10px;
+            color: white;
+            font-size: 1rem;
+            background-color: #F0482B;
+            padding: 5px;
+            border-radius: 5px;
+            height: fit-content;
+            width: fit-content;
+        }
+
+        .imgdisc {
+            color: rgb(250, 245, 245);
+            font-size: clamp(1rem, 1.2rem, 1.4rem);
+            position: absolute;
+            font-weight: bold;
+            bottom: 0px;
+            left: 30px;
+            padding: 0px 9px;
+            background-color: black;
+            border-radius: 15px;
+            word-break: break-all;
+        }
+
+        #addplayerbtn {
+            background: transparent;
+            color: white;
+            outline: none;
+            margin: 0px 5px;
+            border: none;
+            outline: none;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        @media screen and (min-width:1000px) {
+            #centernav ul {
+                display: flex;
+            }
+
+            .trendingFlex ul li {
+                margin: 0px 15px;
+                font-size: clamp(0.7rem, 0.9rem, 1.1rem);
+                list-style-type: none;
+            }
+            .playersCard{
+                margin: 50px auto;
+            }
+        }
+
+        @media screen and (min-width:800px) {
+            .trendingFlex ul li {
+                display: flex;
+            }
+            .playersCard{
+                margin: 50px auto;
+            }
+
+            #moreOpsbtn {
+                display: none;
+            }
+
+            .trendingFlex {
+                display: flex;
+            }
+
+            #slideimg {
+                width: 100%;
+                height: 80vh;
+                margin: auto;
+                display: block;
+            }
+
+
+            .sliderContainer {
+                display: grid;
+                grid-template-columns: 6.5fr 3.5fr;
+                justify-content: space-between;
+                height: 95vh;
+
+            }
+
+            .imgdisc {
+                color: rgb(250, 245, 245);
+                font-size: clamp(1rem, 1.2rem, 1.4rem);
+                position: absolute;
+                font-weight: bold;
+                bottom: 50px;
+                left: 30px;
+                padding: 0px 9px;
+                background-color: black;
+                border-radius: 15px;
+                word-break: break-all;
+            }
+
+            .watchvideo {
+                position: absolute;
+                font-weight: bold;
+                bottom: 100px;
+                left: 30px;
+                color: white;
+                font-size: 1rem;
+                background-color: #F0482B;
+                padding: 5px;
+                border-radius: 5px;
+            }
+
+            .Team22 {
+                position: relative;
+                top: 100px;
+                color: #DA4E20;
+                margin: 110px 30px 50px 30px;
+                font-style: italic;
+            }
+
+        }
+
+        .fa-address-card {
+            height: 30px;
+            width: 30px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 20px;
+        }
+
+        #rightnav input {
+            border-radius: 8px;
+            height: 25px;
+            margin: 0px 5px;
+            padding: 0px 5px;
+            width: 100px;
+            background: transparent;
+            border: 2px solid linear-gradient(90.15deg, #ef4123 -4.45%, #ef7923 52.36%, #ef4123 118.57%);
+            outline: 2px solid linear-gradient(90.15deg, #ef4123 -4.45%, #ef7923 52.36%, #ef4123 118.57%);
+            color: white;
+        }
+
+        #rightnav input::placeholder {
+            color: white;
+        }
+
+        .teamCardbox,
+        .teamCardContainer {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            justify-content: center;
+            margin: 20px 0;
+            align-items: center;
+            text-align: center;
+        }
+
+        .teamCardbox {
+            align-content: center;
+
+        }
+
+        body {
+            background-color: #E5E5E5;
+        }
+
+
+        .teams {
+            width: 18rem;
+            height: 48vh;
+            text-align: center;
+            border: 1px solid black;
+            margin: 20px 20px;
+            border-radius: 16px;
+
+        }
+
+        .teams:hover img {
+            height: 180px;
+            width: 180px;
+            transition: all .8s ease-in-out;
+        }
+
+        .sec2 {
+            display: grid;
+            grid-template-columns: repeat(auto-fill,minmax(350px,1fr));
+            width: 100%;
+        }
+
+        .playersCard {
+            height: 48vh;
+            width: 80%;
+            background-size: cover;
+            margin: 25px auto;
+            border-radius: 10px;
+        }
+
+        .playersCard img {
+            height: 80%;
+            width: 100%;
+            align-items: center;
+        }
+
+        .playersCard a {
+            text-decoration: none;
+        }
+
+        .iplsquad {
+            background: -webkit-linear-gradient(180deg, #18184a 24.18%, #19398a 50.95%, #18184a 110.32%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-size: clamp(3.5rem,4.2rem,4.8rem);
+        }
+
+        .iplsquaddiv {
+            margin: 2rem;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .viewAll {
+            height: fit-content;
+            width: fit-content;
+            border: 1px solid black;
+            padding: 3px;
+            border-radius: 8px;
+            position: relative;
+            top: 20px;
+            background: linear-gradient(92.04deg, #18184a 24.18%, #19398a 50.95%, #18184a 110.32%);
+            color: white;
+        }
+
+        .playersCard ul {
+            list-style-type: none;
+            /* background: linear-gradient(180deg, #0078BC 0%, #17479E 100%); */
+            color: white;
+            text-align: center;
+            position: relative;
+            bottom: 8%;
+            width: 100%;
+            font-size: 1.2rem;
+            border-radius: 10px;
+        }
+
+        .playersCard ul li:nth-child(1) {
+            font-size: 1.8rem;
+            /* color: black; */
+            font-weight: bold;
+        }
+
+        .playersCard ul li span {
+            font-weight: bold;
+            margin: 0 4px;
+            font-size: 1.2rem;
+        }
+
+        .teams a {
+            text-decoration: none;
+            color: white;
+            display: grid;
+            grid-template-rows: 1fr;
+            height: 100%;
+        }
+
+        .teams img {
+            height: 10rem;
+            width: 10rem;
+            margin: auto;
+        }
+
+        .teams h5 {
+            font-size: 1.3rem;
+            margin: 5px 0;
+        }
+
+        .teams:hover h5 {
+            font-size: 1.5rem;
+            transition: all .8s ease-in-out;
+        }
+
+        .teams p {
+            font-size: 1.1rem;
+        }
+
+        .teams div {
+            font-size: 1.1rem;
+            margin: 7px auto;
+            border: 1px solid red;
+            width: fit-content;
+            padding: 5px 5px;
+            border-radius: 15px;
+            color: rgb(170, 126, 14);
+            background-color: white;
+        }
+
+        .fa-trophy {
+            color: goldenrod;
+            margin: 0px 3px;
+        }
+
+        .navbar2 {
+            display:flex;
+            justify-content: center;
+            align-items: center;
+            padding: 15px;
+            margin: 30px auto 0px auto;
+
+        }
+
+        .navbar2 img {
+            height: 85px;
+            width: 85px;
+        }
+
+        .formContainer {
+            margin: 40px auto 0;
+            height: 150px;
+            width: 300px;
+            padding: 5px;
+            box-shadow: 0px 0px 10px inset lightslategray;
+            font-weight: bold;
+            /* text-align: center; */
+            display: none;
+        }
+
+        .formContainer form input {
+            margin: 5px;
+        }
+
+        .formContainer form {
+            margin: 10px;
+        }
+
+
+        .formContainer form label {
+            font-size: 1.2rem;
+        }
+
+        #subbtn {
+            margin-left: 25%;
+            font-size: 1rem;
+            background: linear-gradient(92.04deg, #18184a 24.18%, #19398a 50.95%, #18184a 110.32%);
+            /* background: linear-gradient(92.04deg,#98b3bb 24.18%,#466bab 50.95%,#1A3C93 110.32%); */
+            color: white;
+            outline: none;
+            border: none;
+            padding: 2px 5px;
+            border-radius: 5px;
+        }
+
+        #dlbtn {
+            margin-left: 5%;
+            font-size: 1rem;
+            background: linear-gradient(92.04deg, #18184a 24.18%, #19398a 50.95%, #18184a 110.32%);
+            /* background: linear-gradient(92.04deg,#98b3bb 24.18%,#466bab 50.95%,#1A3C93 110.32%); */
+            color: white;
+            outline: none;
+            border: none;
+            padding: 2px 5px;
+            border-radius: 5px;
+        }
+
+        #fname,
+        #role,
+        #fteam {
+            outline: none;
+            border: none;
+        }
+
+        .teamBanner {
+            background-image: url("https://www.iplt20.com/assets/images/ipl-og-image-new.jpg");
+            width: 100%;
+            /* height: 100%; */
+            background-size: cover;
+            background-repeat: no-repeat;
+            outline: none;
+            border: none;
+        }
+       
+
+
+        .cont {
+            padding: 15px;
+            display: flex;
+            background: linear-gradient(92.04deg, #98b3bb 24.18%, #466bab 50.95%, #1A3C93 110.32%);
+            color: white;
+            width: 100%;
+        }
+
+        @media screen and (max-width:550px) {
+            .cont{
+                display: block;
+            }
+            .navbar2{
+            display: grid;
+            grid-template-columns: repeat(auto-fill,minmax(80px,1fr));
+            }
+            .navbar2 img{
+                height: 65px;
+                width: 65px;
+            }
+            .playersCard{
+                margin: 50px auto;
+            }
+            .footer div ul h1,.footer div ul li{
+                font-size: 0.8rem;
+            }
+            .iplsquad{
+                font-size: 2rem;
+            }
+
+        }
+
+        .logo {
+            height: 180px;
+            width: 180px;
+        }
+
+        .cont div h2 {
+            font-size: 3rem;
+        }
+
+        @media screen and (min-width:550px){            
+            .cont div:last-child {
+                display: flex;
+                justify-content: flex-start;
+                flex-direction: column;
+                margin: 0px 0px 0px 20px;
+            }
+        }
+
+        .trophy {
+            margin: 10px;
+            width: 100%;
+            padding-top: 5px;
+            margin: 8px 0;
+        }
+
+        .trophy i {
+            width: fit-content;
+            height: 30px;
+            background-color: white;
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+            border-radius: 15px;
+            padding: 0px 5px;
+        }
+
+        .trophy ul {
+            margin: 20px 0px;
+            font-size: 1.3rem;
+            list-style-type: none;
+        }
+
+        .trophy ul li {
+            margin: 5px 0px;
+
+        }
+
+        .trophy ul li span {
+            color: black;
+            font-weight: bold;
+            font-size: 1.5rem;
+        }
+
+        .officialsite {
+            height: 30px;
+            width: 300px;
+            font-size: 1.5rem;
+            /* background-color: #EF4123; */
+            background: linear-gradient(92.04deg, #18184a 24.18%, #19398a 50.95%, #18184a 110.32%);
+            border-radius: 8px;
+            color: white;
+            padding: 5px;
+            margin: 8px 0px;
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+        }
+
+        .playersec {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .playerImg {
+            width: 50%;
+            text-align: right;
+        }
+
+        .playerImg img {
+            width: 50%;
+
+        }
+
+        .playerabout {
+            width: 80%;
+        }
+
+        .playerabout h1 {
+            font-size: 4rem;
+            color: white;
+        }
+
+        .playerabout ul li {
+            list-style-type: none;
+            font-size: 2.3rem;
+            color: white;
+        }
+
+
+        footer {
+            margin: 50px 0 0 0;
+
+        }
+
+        footer div {
+            background: linear-gradient(92.04deg, #18184a 24.18%, #19398a 50.95%, #18184a 110.32%);
+            color: white;
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+        }
+
+        footer div ul {
+            margin: 0px auto;
+        }
+
+        footer div ul h1 {
+            margin: 15px 0;
+            font-size: 1.8rem;
+        }
+
+        footer div ul li {
+            list-style-type: none;
+            margin: 5px;
+            font-size: 1rem;
+        }
+
+        footer div ul li:last-child {
+            margin-bottom: 50px;
+        }
+
+        .trendingFlex {
+            background: linear-gradient(90.15deg, #ef4123 -4.45%, #ef7923 52.36%, #ef4123 118.57%);
+            box-shadow: inset 0 4px 18px rgb(0 0 0/ 40%);
+            height: 2.2rem;
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+        }
+
+        .fa-angle-right {
+            color: rgb(220, 210, 210);
+            margin: 0px 5px;
+        }
+
+
+        .trendingFlex ul {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .Container {
+            box-shadow: 0px 0px 10px black;
+            padding: 10px;
+            margin: 10px 0px;
+        }
+
+        .tickets {
+            width: 98%;
+            height: 120px;
+            margin: 50px auto;
+        }
+
+        .Team22 {
+            position: relative;
+            color: #DA4E20;
+            margin: 70px 30px;
+            font-style: italic
+        }
+
+        .Team22 h1 {
+            font-size: clamp(2rem, 2.8rem, 3.2rem);
+        }
+
+        .tickets img {
+            width: 100%;
+            border-radius: 15px;
+            box-shadow: 2px 2px 10px 5px #7e8eb5;
+        }
+
+
+        .MenWomens ul {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            justify-content: space-around;
+            text-align: center;
+            list-style-type: none;
+            font-size: 1.5rem;
+        }
+
+        .MenWomens ul li {
+            font-size: 1.5rem;
+            box-shadow: 0px 2px 10px black;
+
+        }
+
+        .Matchteams {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 80%;
+            margin: 10px auto;
+            background: rgb(1 24 60 / 22%);
+            padding: 0px 10px;
+            height: 35px;
+        }
+
+        .Matchteams p {
+            font-size: clamp(0.7rem, 0.9rem, 1.1rem);
+        }
+
+        .matchres {
+            text-align: center;
+            margin: 10px auto;
+            font: 1.2rem;
+
+        }
+
+        .finalScore {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 60%;
+            margin: 10px auto;
+        }
+
+        .finalScore div {
+            padding: 0px 10px;
+            height: 30px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .fsleft {
+            border-top-left-radius: 20px;
+            border-bottom-left-radius: 20px;
+            transition: all 0.5s ease-in-out;
+        }
+
+        .fsright {
+            border-top-right-radius: 20px;
+            border-bottom-right-radius: 20px;
+            transition: all 0.5s ease-in-out;
+
+        }
+
+        .finalScore:hover .fsright,
+        .finalScore:hover .fsleft {
+            padding: 0px 20px;
+        }
+
+        .GT {
+            background-color: #0B4973;
+            color: white;
+        }
+
+        .RR {
+            color: white;
+            background-color: #EA1A85;
+        }
+
+        .LSG {
+            color: white;
+            background-color: #A5144F;
+        }
+
+        .RCB {
+            color: white;
+            background-color: black;
+        }
+
+        .fscenter {
+            background-color: white;
+            color: black;
+            font-weight: bold;
+            border-radius: 5px;
+        }
+
+        #mens {
+            background-color: #DA4E20;
+        }
+    </style>
+
+</head>
+
+<body>
+    <header>
+        <nav class="navbar">
+            <div id="leftnav">
+                <img src="https://www.iplt20.com/assets/images/ipl-logo-new-old.png" alt="iplLogo">
+            </div>
+
+            <div id="centernav">
+                <ul>
+                    <li>MATCHES</li>
+                    <li>VIDEOS</li>
+                    <li>STATS</li>
+                    <li>POINTS TABLE</li>
+                    <li>FANTASY</li>
+                    <li>TEAMS</li>
+                    <li>NEWS</li>
+                    <li>MORE</li>
+                </ul>
+            </div>
+
+            <div id="rightnav">
+                <input type="text" placeholder="Search Player By Team">
+                <img src="https://www.iplt20.com/assets/images/fan-poll.svg" alt="fan-poll">
+                <img src="https://www.iplt20.com/assets/images/viewers-choice.svg" alt="viewers-choice">
+            </div>
+        </nav>
+        <nav class="navbar2">
+            <img src="https://bcciplayerimages.s3.ap-south-1.amazonaws.com/ipl/CSK/logos/Roundbig/CSKroundbig.png"
+                alt="Teams-Logo">
+            <img src="https://bcciplayerimages.s3.ap-south-1.amazonaws.com/ipl/DC/Logos/Roundbig/DCroundbig.png"
+                alt="Teams-Logo">
+            <img src="https://bcciplayerimages.s3.ap-south-1.amazonaws.com/ipl/GT/Logos/Roundbig/GTroundbig.png"
+                alt="Teams-Logo">
+            <img src="https://bcciplayerimages.s3.ap-south-1.amazonaws.com/ipl/KKR/Logos/Roundbig/KKRroundbig.png"
+                alt="Teams-Logo">
+            <img src="https://bcciplayerimages.s3.ap-south-1.amazonaws.com/ipl/LSG/Logos/Roundbig/LSGroundbig.png"
+                alt="Teams-Logo">
+            <img src="https://bcciplayerimages.s3.ap-south-1.amazonaws.com/ipl/MI/Logos/Roundbig/MIroundbig.png"
+                alt="Teams-Logo">
+            <img src="https://bcciplayerimages.s3.ap-south-1.amazonaws.com/ipl/PBKS/Logos/Roundbig/PBKSroundbig.png"
+                alt="Teams-Logo">
+            <img src="https://bcciplayerimages.s3.ap-south-1.amazonaws.com/ipl/RR/Logos/Roundbig/RRroundbig.png"
+                alt="Teams-Logo">
+            <img src="https://bcciplayerimages.s3.ap-south-1.amazonaws.com/ipl/RCB/Logos/Roundbig/RCBroundbig.png"
+                alt="Teams-Logo">
+            <img src="https://bcciplayerimages.s3.ap-south-1.amazonaws.com/ipl/SRH/Logos/Roundbig/SRHroundbig.png"
+                alt="Teams-Logo">
+        </nav>
+    </header>
+
+    <section class="selectedteam">
+        <div class="selectedteamdetails">
+        </div>
+    </section>
+
+    <div class="iplsquaddiv">
+        <h1 class="iplsquad">IPL Squad 2022</h1>
+        <div class="viewAll">View All</div>
+    </div>
+
+    <section class="sec2">
+    </section>
+
+    <footer>
+        <div>
+            <ul>
+                <h1>TEAM</h1>
+                <li>Chennai Super Kings</li>
+                <li>Delhi Capitals</li>
+                <li>Gujarat Titans</li>
+                <li>Kolkata Knight Riders</li>
+                <li>More...</li>
+            </ul>
+
+            <ul>
+                <h1>CONTACT</h1>
+                <li>Contact Us</li>
+                <li>Sponsorship</li>
+                <li>Privacy Policy</li>
+            </ul>
+
+            <ul>
+                <h1>ABOUT</h1>
+                <li>About Us</li>
+                <li>Anti Corruption Policy</li>
+                <li>Anti Doping Policy</li>
+                <li>TUE Application Form</li>
+                <li>Anti Discrimination</li>
+            </ul>
+        </div>
+
+    </footer>
+
+
+    <script>
+        const selectedteam = document.querySelector(".selectedteam");
+        const selectedteamdetails = document.querySelector(".selectedteamdetails");
+        const section2 = document.querySelector(".sec2");
+        const playerContainer = document.querySelector(".playerContainer");
+        const section2home = document.getElementById("#section2home");
+        const searchresult = document.getElementById("#searchresult");
+        var link = window.location.search.split("=")[1];
+        let fetchhelp = window.location.href.split('/')
+        let getFetch1 = fetchhelp[0]+"//"+fetchhelp[1]+fetchhelp[2]+"/"
+        let getFetch =  getFetch1 || "http://localhost:8080/"
+     
+console.log(fetch(`${getFetch}getTeams/${link}`))
+Promise.all([
+	fetch(`${getFetch}getTeams/${link}`),
+	fetch(`${getFetch}players${link}`)
+]).then(function (responses) {
+    return Promise.all(responses.map(function (response) {
+	return response.json();
+	}));
+}).then(function (data) {
+    var part1 = data[0]
+    var part2 = data[1]
+    teamBannerData(part1)
+    teamPlayerCards(part1,part2)
+})
+.catch(function (error) {
+	console.log(error);
+});            
+
+
+        function teamBannerData(data) {
+            const selectteamdata = `
+  <div class="cont" id="gstyle" style="background:${data[0].background}">
+  <div>
+      <img class="logo"
+          src="${data[0].img}"
+          alt="logo">
+  </div>
+  <div>
+      <h2>${data[0].teamName}</h2>
+      <div class="officialsite">Official Team Site
+          <i class="fa-brands fa-twitter"></i> <i class="fa-brands fa-instagram"></i><i
+              class="fa-brands fa-facebook"></i>
+      </div>
+      <div class="trophy"> <i class="fa-solid fa-trophy">${data[0].Won}</i>
+       
+          <ul>
+              <li><span>Owner</span> : ${data[0].teamName}</li>
+              <li> <span>Coach</span> :${data[0].coach}</li>
+              <li> <span>Venue</span>: ${data[0].Stadium}</li>
+              <li><span>Captain </span>:${data[0].Captain}</li>
+              <li> <span>Top Batsman</span>:${data[0].Captain}</li>
+              <li> <span>Top Bowler </span>: ${data[0].topbowler}</li>
+              <li> <span>Total Players</span>: ${data[0].totalPLayer}</li>
+          </ul>
+      </div>
+  </div>
+</div>`;
+
+            selectedteamdetails.innerHTML = selectteamdata;
+
+        }
+
+        function teamPlayerCards(data,playerdata) {
+            for (var j = 0; j < playerdata.length; j++) {
+    const players = `<div class="playersCard" style="background:${data[0].background};border:${data[0].border}">
+    <a href="player-page?id=${j + 1}=${link}">
+    <img src="${playerdata[j].img}" alt="">
+    <ul style="background:${data[0].background};border:${data[0].border}">    
+        <li>${playerdata[j].playername}</li>
+        <li><span>Team</span>: ${data[0].teamName}</li>
+        <li><span>Roll</span>: ${playerdata[j].role}</li>
+        <li><span>Price</span>:  ${playerdata[j].price}</li>
+    </ul>
+    </a>
+    </div>`
+   section2.innerHTML += players;
+            }}
+
+</script>
+</body>
+
+</html>
